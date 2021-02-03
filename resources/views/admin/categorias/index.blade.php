@@ -35,10 +35,20 @@
                         <td>{{$category->id}}</td>
                         <td>{{$category->name}}</td>
                         <td>
-                        <button class="btn btn-success">Editar</button>
+                        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#modal-update-category-{{$category->id}}">Editar</button>
+
+                        <form action="{{route('admin.categorias.delete', $category->id)}}" method="post">
+                        {{csrf_field()}}
+                        @method('DELETE')
                         <button class="btn btn-danger">Eliminar</button>
+                        </form>
+
                         </td>
                         </tr>
+                        @include('admin.categorias.modal-update-category')
+                        
+ 
+
                         @endforeach
                     </tbody>
                     <tfoot>
@@ -87,6 +97,7 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
 @stop
 
 @section('js')

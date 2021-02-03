@@ -29,5 +29,25 @@ class CategoriaController extends Controller
         
         return redirect()->back();
     }
+
+    public function update(Request $request, $categoryId)
+    {
+
+        $category=Category::find($categoryId);
+        $category->name=$request->name;
+        $category->save();
+
+        return redirect()->back();
+
+    }
+
+    public function delete(Request $request, $categoryId)
+    {
+
+        $category=Category::find($categoryId);
+        $category->delete();
+        return redirect()->back();
+
+    }
 } 
  

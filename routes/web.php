@@ -18,11 +18,11 @@ Route::get('/', function () {
 });
 
 Route::get('/admin/categorias' ,[App\Http\Controllers\Admin\CategoriaController::class,'index'])->name('admin.categorias');
-Route::POST('/admin/categorias/store' ,[App\Http\Controllers\Admin\CategoriaController::class,'store'])->name('admin.categorias.store');
-
+Route::post('/admin/categorias/store' ,[App\Http\Controllers\Admin\CategoriaController::class,'store'])->name('admin.categorias.store');
+Route::post('/admin/categorias/{categoryId}/update' ,[App\Http\Controllers\Admin\CategoriaController::class,'update'])->name('admin.categorias.update');
+Route::delete('/admin/categorias/{categoryId}/delete' ,[App\Http\Controllers\Admin\CategoriaController::class,'delete'])->name('admin.categorias.delete');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
