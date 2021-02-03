@@ -18,6 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/admin/categorias' ,[App\Http\Controllers\Admin\CategoriaController::class,'index'])->name('admin.categorias');
+Route::POST('/admin/categorias/store' ,[App\Http\Controllers\Admin\CategoriaController::class,'store'])->name('admin.categorias.store');
+
 
 Auth::routes();
 

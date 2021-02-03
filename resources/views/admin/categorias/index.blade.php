@@ -1,91 +1,100 @@
 @extends('adminlte::page')
 
-
-@section('title','Laravel APP')
-
-@section('css')
-<!-- link rel="stylesheet" href="/css/admin_custom.css"-->
-
+@section('title', 'Categorías')
 
 @section('content_header')
-<h1>Categorias
-    <button type="button" class="btn btn-success" data-toggle="modal"
-    data-target="#modal">
-    Crear
-</button>
-</h1>   
+<h1>
+    Categorías
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-create-category">
+        Crear
+    </button>
+</h1>
 @stop
+
 @section('content')
-<table id="categorias" class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-<div class="modal" tabindex="-1" id="modal" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Listado de categorías</h3>
+                </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="categories" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Categorias</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($categorias as $category)
+                        <tr>
+                        <td>{{$category->id}}</td>
+                        <td>{{$category->name}}</td>
+                        <td>
+                        <button class="btn btn-success">Editar</button>
+                        <button class="btn btn-danger">Eliminar</button>
+                        </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                          <th>ID</th>
+                          <th>Categoria</th>
+                          <th>Acciones</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
     </div>
-  </div>
+    <!-- /.row -->
 </div>
-@endsection
+
+<!-- modal -->
+<div class="modal fade" id="modal-create-category">
+    <div class="modal-dialog">
+        <div class="modal-content bg-default">
+            <div class="modal-header">
+                <h4 class="modal-title">Crear Categoría</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                </div>
+            <form action="{{route ('admin.categorias.store')}}" method="POST">
+            {{csrf_field()}}
+              <div class="modal-body">
+              <div class="form-group">
+              <label for="name">Categoria</label>
+              <input type="text" name="name" id="name" class="form-control">
+              </div>
+              </div>
+              <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                <button type="submint" class="btn btn-outline-primary">Guardar</button>
+              </div>
+            </form>
+        </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+@stop
 
 @section('js')
 <script>
-    $(document).ready(function(){
-        $('#categorias').DataTable({
-            "order":[[3,"desc"]]
-        });
-    });
+$(document).ready(function() {
+    $('#categories').DataTable( {
+        "order": [[ 3, "desc" ]]
+    } );
+} );
 </script>
 @stop
-
