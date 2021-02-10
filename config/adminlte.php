@@ -243,25 +243,20 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Categorias',
+            'url'  => 'admin/categorias',
+            'icon' => 'fas fa-fw fas fa-align-center',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Clientes',
+            'icon'    => 'fas fa-fw fa-people',
             'submenu' => [
                 [
-                    'text' => 'level_one',
+                    'text' => 'Listado',
                     'url'  => '#',
                 ],
                 [
-                    'text'    => 'level_one',
+                    'text'    => 'Añadir',
                     'url'     => '#',
                     'submenu' => [
                         [

@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('admin.home')
 
 @section('title', 'Categorías')
 
@@ -21,7 +21,7 @@
                 </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <table id="categories" class="table table-bordered table-striped">
+                <table id="categories" class="table table-bordered table-striped ">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -31,16 +31,18 @@
                     </thead>
                     <tbody>
                         @foreach($categorias as $category)
-                        <tr>
+                        <tr >
                         <td>{{$category->id}}</td>
                         <td>{{$category->name}}</td>
-                        <td>
-                        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#modal-update-category-{{$category->id}}">Editar</button>
+                        <td class="btn row">
+                        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#modal-update-category-{{$category->id}}">
+                            <i class="glyphicon glyphicon-refresh"></i></button>
 
-                        <form action="{{route('admin.categorias.delete', $category->id)}}" method="post">
+                        
+                        <form class="form" action="{{route('admin.categorias.delete', $category->id)}}" method="post">
                         {{csrf_field()}}
                         @method('DELETE')
-                        <button class="btn btn-danger">Eliminar</button>
+                        <button class="btn btn-danger "><i class="glyphicon glyphicon-trash"></i></button>
                         </form>
 
                         </td>
@@ -51,13 +53,7 @@
 
                         @endforeach
                     </tbody>
-                    <tfoot>
-                        <tr>
-                          <th>ID</th>
-                          <th>Categoria</th>
-                          <th>Acciones</th>
-                        </tr>
-                    </tfoot>
+                   
                 </table>
             </div>
             <!-- /.card-body -->
@@ -97,7 +93,6 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
 @stop
 
 @section('js')
@@ -109,3 +104,5 @@ $(document).ready(function() {
 } );
 </script>
 @stop
+
+
