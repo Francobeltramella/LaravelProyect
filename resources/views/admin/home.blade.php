@@ -13,6 +13,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <script src="{{ asset('js/app.js') }}"></script>
+
   <link rel="stylesheet" href="{{ asset('css/app_Home.css') }}">
 </head>
 <body>
@@ -101,7 +103,7 @@
 										<div id="dropdown-lvl2" class="panel-collapse collapse">
 											<div class="panel-body">
 												<ul class="nav navbar-nav">
-													<li><a href="#">Link</a></li>
+													<li><a href="#">dvds</a></li>
 													<li><a href="#">Link</a></li>
 													<li><a href="#">Link</a></li>
 												</ul>
@@ -113,7 +115,7 @@
 						</div>
 					</li>
 
-					<li><a href="#"><span class="glyphicon glyphicon-signal"></span> Link</a></li>
+					<li><a href="{{'/admin/productos'}}"><span class="glyphicon glyphicon-sale"></span> Productos</a></li>
 
 				</ul>
 			</div><!-- /.navbar-collapse -->
@@ -129,7 +131,9 @@
 	<div class="panel-body">
   <main class="py-4">
             @yield('content')
+			@yield('js')
 </main>	
+
 </div>
 </div>
   		</div>

@@ -4517,6 +4517,7 @@ input[type=button].btn-block {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  background-color: ;
 }
 
 .navbar .container,
@@ -4984,6 +4985,7 @@ input[type=button].btn-block {
   border-radius: 0.25rem;
 }
 
+
 .card > hr {
   margin-right: 0;
   margin-left: 0;
@@ -5015,6 +5017,9 @@ input[type=button].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+  background-color: #d6a36f;
+  background: linear-gradient(rgb(233, 159, 74),rgb(155, 148, 148) );
+  color: white;
 }
 
 .card-title {
@@ -5041,8 +5046,9 @@ input[type=button].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: rgb(233, 159, 74);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+  color: white;
 }
 
 .card-header:first-child {
@@ -7088,7 +7094,9 @@ button.bg-dark:focus {
 .bg-white {
   background-color: #fff !important;
 }
-
+.bg-orange{
+  background-color: rgb(233, 159, 74);
+}
 .bg-transparent {
   background-color: transparent !important;
 }
@@ -10908,6 +10916,7 @@ a.text-dark:focus {
 
   .navbar {
     display: none;
+    background-color: rgb(233, 159, 74);
   }
 
   .badge {

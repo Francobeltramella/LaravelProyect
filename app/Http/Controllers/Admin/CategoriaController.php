@@ -15,6 +15,8 @@ class CategoriaController extends Controller
 
     public function index()
     {
+      //  $category= Category::find(2);
+      //   dd($category);
         $categorias = Category::all();
         return view('admin.categorias.index',['categorias'=>$categorias]);
     }
